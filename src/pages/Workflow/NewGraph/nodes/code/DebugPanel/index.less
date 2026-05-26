@@ -1,0 +1,58 @@
+.DebugPanel {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 1000;
+  height: calc(100% - 80px);
+  background-color: white;
+  border: 1px solid #d9d9d9;
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  width: 100%;
+
+  &-body {
+    overflow-y: auto;
+    height: calc(100% - 120px);
+  }
+
+  &-header {
+    padding: 16px;
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &-title {
+    font-weight: bold;
+  }
+
+  &-close {
+    padding: 4px 8px;
+  }
+
+  &-content {
+    padding: 16px 16px 0;
+  }
+
+  &-bottom {
+    position: absolute;
+    bottom: 0;
+    border-top: 1px solid #f0f0f0;
+    padding: 16px;
+    width: 100%;
+  }
+
+  &-content {
+    &-title {
+      font-weight: 500;
+      margin-bottom: 16px;
+    }
+  }
+
+  &-jsonviewer {
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    padding: 4px 12px;
+  }
+}

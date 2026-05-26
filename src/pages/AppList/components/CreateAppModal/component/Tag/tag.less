@@ -1,0 +1,32 @@
+.template-tag-item {
+  position: relative;
+
+  &:hover {
+    .template-tag-edit-icon {
+      visibility: visible;
+      cursor: pointer;
+    }
+
+    .template-tag-close {
+      cursor: pointer;
+      display: inline-block;
+    }
+  }
+
+  .template-tag-edit-icon {
+    visibility: hidden;
+
+    &:hover {
+      & > path {
+        fill: #337eff;
+      }
+    }
+  }
+
+  .template-tag-close {
+    display: none;
+    position: absolute;
+    right: -6px;
+    bottom: -3px;
+  }
+}

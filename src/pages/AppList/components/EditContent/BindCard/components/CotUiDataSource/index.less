@@ -1,0 +1,43 @@
+.BindCard-cotui-bindings {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  &-row {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  &-badge {
+    flex: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #337eff;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4px;
+  }
+
+  &-body {
+    flex: 1;
+    min-width: 0;
+
+    .ant-form-item {
+      margin-bottom: 0;
+    }
+  }
+
+  &-path {
+    font-size: 13px;
+    color: #1a1a1a;
+    margin-bottom: 6px;
+    word-break: break-all;
+    font-family: var(--font-mono, Menlo, Consolas, monospace);
+  }
+}

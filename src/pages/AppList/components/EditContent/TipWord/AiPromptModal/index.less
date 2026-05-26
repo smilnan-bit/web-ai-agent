@@ -1,0 +1,289 @@
+.ai-prompt-modal {
+  .ant-modal-content {
+    .ant-modal-header {
+      .ai-prompt-modal-title {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+      }
+    }
+  }
+
+  .ant-modal-body {
+    padding-bottom: 12px;
+
+    .ai-prompt-modal-tab {
+      font-size: 14px;
+      line-height: 18px;
+      color: #000000d9;
+      font-weight: 400;
+      padding: 4px;
+      display: inline-flex;
+      background-color: #f2f3f5;
+      position: relative;
+      border-radius: 4px;
+      overflow: hidden;
+
+      .tab-item {
+        position: relative;
+        z-index: 2;
+        padding: 7px 16px;
+        cursor: pointer;
+        border-radius: 2px;
+        transition: color 0.3s ease;
+        font-size: 14px;
+        white-space: nowrap;
+        user-select: none;
+      }
+
+      .tab-item.active {
+        color: #337eff;
+        font-weight: 500;
+      }
+
+      .tab-slider {
+        position: absolute;
+        top: 4px;
+        bottom: 4px;
+        width: calc(50% - 4px);
+        background-color: #ffffff;
+        box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 2px;
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1;
+      }
+
+      .tab-slider.slide-left {
+        transform: translateX(0);
+      }
+
+      .tab-slider.slide-right {
+        transform: translateX(100%);
+      }
+
+      /* Hover效果 */
+      .tab-item:not(.active):hover {
+        color: #337eff;
+        opacity: 0.7;
+      }
+    }
+
+    .ai-prompt-textarea-wrapper {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      border: 1px solid #00000040;
+      box-shadow: 0px 4px 8px 0px #bfbfbf33;
+      border-radius: 8px;
+
+      .aptw-textarea {
+        padding: 8px 12px 0 12px;
+        min-height: 52px;
+        max-height: 220px;
+
+        /* 自定义滚动条 */
+        &::-webkit-scrollbar {
+          width: 8px;
+        }
+
+        &::-webkit-scrollbar-track {
+          background: transparent;
+          border-right: 4px solid transparent;
+        }
+
+        /* 滚动条滑块 */
+        &::-webkit-scrollbar-thumb {
+          background-color: #00000026;
+          border-top: 10px solid transparent; /* 上边距10px */
+          border-bottom: 10px solid transparent; /* 下边距10px */
+          border-radius: 2px;
+          border-right: 4px solid transparent; /* 滑块也要有对应的border */
+          background-clip: padding-box; /* 重要：让背景不填充到border区域 */
+          transition: background-color 0.2s ease;
+        }
+
+        /* 滚动条滑块悬停状态 */
+        &::-webkit-scrollbar-thumb:hover {
+          background-color: #bfbfbf;
+          cursor: pointer;
+        }
+
+        /* 滚动条滑块激活状态 */
+        &::-webkit-scrollbar-thumb:active {
+          background-color: #999999;
+        }
+
+        /* 滚动条拐角 */
+        &::-webkit-scrollbar-corner {
+          background: transparent;
+        }
+      }
+
+      .aptw-textarea-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        border-radius: 16px;
+        background-color: #d9d9d9;
+        cursor: pointer;
+        justify-self: flex-end;
+        margin: 0px 12px 12px 0px;
+      }
+
+      .focused {
+        background-color: #337eff;
+        color: #ffffff;
+      }
+    }
+
+    .wrapper-focused {
+      box-shadow: 0px 4px 8px 0px #337eff33;
+      border: 1px solid #337eff;
+    }
+
+    .ai-prompt-alert {
+      font-weight: 400;
+      color: #00000040;
+      line-height: 20px;
+      font-size: 12px;
+      padding-top: 12px;
+      margin-bottom: 0;
+      text-align: center;
+      -webkit-user-select: none; /* Safari */
+      -moz-user-select: none; /* Firefox */
+      -ms-user-select: none; /* IE10+/Edge */
+      user-select: none; /* Standard */
+    }
+
+    .ai-prompt-content {
+      margin: 12px 0px;
+      height: 380px;
+      padding: 0 12px;
+      background-color: #f2f7ff;
+
+      .ant-spin-nested-loading {
+        height: 100%;
+        width: 100%;
+
+        .ant-spin-container {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      .ai-prompt-content-default {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+
+        .apcd-innner {
+          & > svg {
+            margin-bottom: 12px;
+          }
+          display: flex;
+          flex: 1;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          font-size: 14px;
+          line-height: 22px;
+          color: #00000073;
+        }
+      }
+
+      .ai-prompt-content-prompt {
+        padding: 8px 12px;
+
+        .apcp-inner {
+          width: 100%;
+          height: 316px;
+          overflow-y: auto;
+
+          /* 自定义滚动条 */
+          &::-webkit-scrollbar {
+            width: 8px;
+          }
+
+          &::-webkit-scrollbar-track {
+            background: transparent;
+            border-right: 4px solid transparent;
+          }
+
+          /* 滚动条滑块 */
+          &::-webkit-scrollbar-thumb {
+            background-color: #00000026;
+            border-top: 10px solid transparent; /* 上边距10px */
+            border-bottom: 10px solid transparent; /* 下边距10px */
+            border-radius: 2px;
+            border-right: 4px solid transparent; /* 滑块也要有对应的border */
+            background-clip: padding-box; /* 重要：让背景不填充到border区域 */
+            transition: background-color 0.2s ease;
+          }
+
+          /* 滚动条滑块悬停状态 */
+          &::-webkit-scrollbar-thumb:hover {
+            background-color: #bfbfbf;
+            cursor: pointer;
+          }
+
+          /* 滚动条滑块激活状态 */
+          &::-webkit-scrollbar-thumb:active {
+            background-color: #999999;
+          }
+
+          /* 滚动条拐角 */
+          &::-webkit-scrollbar-corner {
+            background: transparent;
+          }
+
+          pre {
+            width: 100%;
+
+            word-break: break-word;
+            box-sizing: border-box;
+            white-space: pre-wrap;
+          }
+        }
+
+        .apcp-inner-padding {
+          padding: 0 4px 0 24px;
+        }
+
+        .apcp-operate {
+          margin-top: 12px;
+          padding-left: 12px;
+          display: flex;
+
+          .apcp-operate-use {
+            border-radius: 2px;
+            padding: 5px 16px;
+            background: #337eff;
+            color: #ffffff;
+            cursor: pointer;
+          }
+
+          .apcp-operate-copy {
+            padding: 5px 0 5px 16px;
+            color: #337eff;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
+          }
+        }
+      }
+
+      .apcp-noPadding {
+        padding: 8px 0px;
+      }
+    }
+
+    .ai-prompt-content-noPadding {
+      padding: 0;
+    }
+  }
+}

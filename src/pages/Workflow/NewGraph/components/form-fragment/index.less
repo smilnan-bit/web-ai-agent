@@ -1,0 +1,83 @@
+.FormFragment {
+  background: #f7f8fa;
+  border-radius: 2px;
+  box-sizing: border-box;
+  // margin-bottom: 8px;
+  padding: 12px;
+  position: relative;
+  width: 100%;
+
+  .ant-table {
+    // 出现校验信息后 表格没发垂直对其进行问题
+    .ant-table-cell {
+      vertical-align: top;
+    }
+
+    .ant-table-placeholder {
+      * {
+        &:hover {
+          background-color: #f7f8fa;
+        }
+      }
+
+      .ant-empty {
+        margin: 12px 0 0;
+
+        &-image {
+          display: none;
+        }
+      }
+    }
+
+    .ant-table-tbody > tr > td {
+      border-bottom: none;
+    }
+
+    &.ant-table-small {
+      .ant-table-title,
+      .ant-table-footer,
+      .ant-table-tbody > tr > td,
+      tfoot > tr > th,
+      tfoot > tr > td {
+        padding: 8px 4px;
+      }
+
+      .ant-table-thead > tr > th {
+        padding: 8px 4px 0;
+        border-bottom: none;
+
+        &::before {
+          display: none;
+        }
+      }
+    }
+
+    .ant-table-wrapper.ComplicateParams,
+    .ant-table-container,
+    tr.ant-table-expanded-row > td,
+    tr.ant-table-expanded-row:hover > td,
+    .ant-table-thead > tr > th {
+      background-color: #f7f8fa;
+    }
+  }
+
+  .Table-addbutton {
+    width: 60px;
+    padding: 0;
+  }
+
+  &-content {
+    position: relative;
+  }
+
+  &-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #f7f8fa80;
+    pointer-events: none;
+    z-index: 10;
+  }
+}

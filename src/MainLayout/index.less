@@ -1,0 +1,338 @@
+// 七鱼设计 token
+@color-primary: #505EFA;
+@color-primary-bg: rgba(80, 94, 250, 0.08); // color-ysf-selected 8%
+@color-main: #1A1A1A;       // color-ysf-main
+@color-secondary: #767580;  // color-ysf-secondary
+@color-third: #AEADB8;      // color-ysf-third
+@color-line-light: #EBEBF2; // color-ysf-line-light
+@color-bg: #F5F5FA;         // color-ysf-bg
+@color-bg-hover: #F2F2F5;   // color-ysf-bg-hover
+
+@sider-width: 240px;
+
+.main-layout {
+  height: 100vh;
+  min-width: 1260px;
+
+  .layout-background {
+    pointer-events: none;
+    position: fixed;
+    overflow: hidden;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    z-index: 0;
+    height: 100%;
+    width: 100%;
+    background: @color-bg;
+  }
+
+  // 移除顶部 header 后内层布局占满全高
+  .ant-layout {
+    height: 100vh;
+  }
+
+  // 内层行布局（Sider + 内容并排）
+  .main-layout-inner {
+    height: 100vh;
+    flex-direction: row;
+  }
+
+  // ===== Sider 整体 =====
+  .sider {
+    position: fixed;
+    height: 100vh;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid @color-line-light;
+    z-index: 100;
+    overflow: hidden;
+    padding: 0;
+
+    // Ant Design Sider 内部包裹层也需要 flex column 才能让底部真正吸底
+    .ant-layout-sider-children {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      overflow: hidden;
+    }
+  }
+
+  // ===== Logo 区域 =====
+  .sider-logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 18px 16px;
+    flex-shrink: 0;
+    border-bottom: 1px solid @color-line-light;
+
+    .sider-logo-img {
+      width: 120px;
+      height: 44px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+  }
+
+  // ===== 菜单滚动容器 =====
+  .sider-menu-wrap {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 8px 0;
+
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: @color-line-light;
+      border-radius: 2px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+  }
+
+  // ===== 菜单项样式覆盖（Ant Design 4） =====
+  .layout-menu {
+    height: auto;
+    border-right: 0;
+    background: transparent;
+
+    &.ant-menu-inline {
+      border-right: none;
+    }
+
+    // 普通菜单项
+    .ant-menu-item {
+      border-radius: 6px;
+      margin: 2px 10px;
+      width: calc(100% - 20px);
+      height: 40px;
+      line-height: 40px;
+      padding: 0 12px !important;
+      color: @color-main;
+      transition: background 0.15s, color 0.15s;
+
+      .ant-menu-title-content {
+        font-size: 14px;
+        font-weight: 400;
+        color: @color-main;
+      }
+
+      .anticon {
+        margin-right: 10px;
+        vertical-align: -0.2em;
+        font-size: 16px;
+        color: @color-main;
+        transition: color 0.15s;
+      }
+
+      // 悬停态：bg-hover 背景，文字颜色不变
+      &:hover {
+        background: @color-bg-hover;
+      }
+
+      // 选中态：primary-bg + primary 文字 + primary 图标
+      &.ant-menu-item-selected {
+        background: @color-primary-bg;
+        color: @color-primary;
+
+        .ant-menu-title-content {
+          color: @color-primary;
+          font-weight: 500;
+        }
+
+        .anticon {
+          color: @color-primary !important;
+        }
+
+        // 去掉默认右侧蓝色竖条
+        &::after {
+          display: none;
+        }
+      }
+    }
+
+    // SubMenu（如 AI搭建助手）父级标题，与普通菜单项对齐
+    .ant-menu-submenu {
+      &.ant-menu-submenu-inline > .ant-menu-submenu-title {
+        border-radius: 6px;
+        margin: 2px 10px;
+        width: calc(100% - 20px);
+        height: 40px;
+        line-height: 40px;
+        padding: 0 34px 0 12px !important;
+        color: @color-main;
+        transition: background 0.15s, color 0.15s;
+
+        .ant-menu-title-content {
+          font-size: 14px;
+          font-weight: 400;
+          color: @color-main;
+        }
+
+        .anticon:not(.ant-menu-submenu-arrow) {
+          margin-right: 10px;
+          vertical-align: -0.2em;
+          font-size: 16px;
+          color: @color-main;
+        }
+
+        &:hover {
+          background: @color-bg-hover;
+        }
+      }
+
+      // 子菜单展开箭头颜色
+      .ant-menu-submenu-arrow {
+        color: @color-secondary;
+      }
+
+      // SubMenu 选中/展开态父级
+      &.ant-menu-submenu-selected > .ant-menu-submenu-title,
+      &.ant-menu-submenu-open > .ant-menu-submenu-title {
+        color: @color-primary;
+
+        .ant-menu-title-content {
+          color: @color-primary;
+          font-weight: 500;
+        }
+
+        .anticon:not(.ant-menu-submenu-arrow) {
+          color: @color-primary !important;
+        }
+      }
+    }
+  }
+
+  // ===== 底部用户区 =====
+  .sider-bottom {
+    flex-shrink: 0;
+    padding: 10px 10px;
+    border-top: 1px solid @color-line-light;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px;
+
+    .sider-user {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      flex: 1;
+      min-width: 0;
+      padding: 5px 6px;
+      border-radius: 6px;
+      transition: background 0.15s;
+
+      &:hover {
+        background: @color-bg-hover;
+      }
+
+      .sider-user-name {
+        font-size: 12px;
+        color: @color-secondary;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+
+    // 下载按钮
+    .sider-download-btn {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      cursor: pointer;
+      color: @color-third;
+      font-size: 15px;
+      transition: background 0.15s, color 0.15s;
+
+      &:hover {
+        background: @color-bg-hover;
+        color: @color-secondary;
+      }
+    }
+  }
+
+  // ===== 内容区 =====
+  .content {
+    z-index: 1;
+    padding: 0 16px 16px;
+    overflow-y: auto;
+
+    &.fullscreen {
+      padding: 0;
+    }
+  }
+
+  .noPadding {
+    padding: 0;
+  }
+}
+
+// ===== 用户弹出菜单（全局层） =====
+.sider-user-popover {
+  .ant-popover-inner {
+    padding: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(26, 26, 26, 0.1);
+  }
+
+  .ant-popover-inner-content {
+    padding: 0;
+    min-width: 160px;
+  }
+
+  .sider-user-popup {
+    padding: 4px 0;
+
+    .sider-user-popup-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 16px;
+      cursor: pointer;
+      font-size: 13px;
+      color: #1A1A1A;
+      transition: background 0.15s;
+
+      &:hover {
+        background: #F5F5FA;
+        color: #505EFA;
+      }
+
+      &.sider-user-popup-nickname {
+        cursor: default;
+        font-weight: 600;
+        font-size: 14px;
+        color: #1A1A1A;
+
+        &:hover {
+          background: transparent;
+          color: #1A1A1A;
+        }
+      }
+
+      &.sider-user-popup-logout {
+        color: #767580;
+      }
+    }
+
+    .sider-user-popup-divider {
+      height: 1px;
+      background: #EBEBF2;
+      margin: 4px 0;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+@import '~@/assets/css/color.less';
+
+.form-prompt {
+  > div {
+    min-height: 100px;
+    height: auto;
+    max-height: 500px;
+    background-color: #fff;
+    border-radius: 2px;
+    border: 1px solid #d9d9d9;
+    overflow-y: scroll;
+    resize: vertical;
+
+    .cm-editor {
+      .jinja-expression {
+        color: @primary-color !important;
+      }
+
+      .cm-content {
+        min-height: 100px;
+      }
+
+      * {
+        font-family: inherit !important;
+      }
+    }
+  }
+}

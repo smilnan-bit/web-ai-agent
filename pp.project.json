@@ -1,0 +1,11 @@
+{
+  "product": "VOC",
+  "isStatic": true,
+  "cmdbName": "",
+  "type": "应用",
+  "priority": "P0",
+  "tech": "React",
+  "maintainer": "焱寒",
+  "mrAssignee": "焱寒、吴杰",
+  "description": "云商 AI Agent应用"
+}

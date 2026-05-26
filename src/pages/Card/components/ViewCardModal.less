@@ -1,0 +1,154 @@
+.ViewCardModal {
+  // ── 自定义标题栏 ──────────────────────────────────────────────
+  &-header {
+    display: flex;
+    align-items: stretch;
+    height: 48px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  &-header-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 16px;
+    flex: 1;
+    min-width: 0;
+    border-right: 1px solid #f0f0f0;
+  }
+
+  &-header-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 16px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  &-header-text {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1f2329;
+    flex: 1;
+    // 左侧区：查看卡片文案撑开空间，右侧区也一样
+    min-width: 0;
+  }
+
+  // × 关闭按钮
+  &-header-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    font-size: 18px;
+    line-height: 1;
+    color: #8f959e;
+    cursor: pointer;
+    border-radius: 4px;
+    flex-shrink: 0;
+    transition: background 0.15s, color 0.15s;
+
+    &:hover {
+      background: #f5f5f5;
+      color: #1f2329;
+    }
+  }
+
+  // ── 弹窗内容区 ────────────────────────────────────────────────
+  &-body {
+    display: flex;
+    height: 560px;
+    overflow: hidden;
+  }
+
+  // 左栏：卡片预览
+  &-left {
+    flex: 1 1 0;
+    box-sizing: border-box;
+    min-width: 0;
+    border-right: 1px solid #f0f0f0;
+    overflow: auto;
+    background: linear-gradient(0deg, #f5f5fa 0%, #f5f5fa 100%), #fff;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  // 右栏：实时 JSON + 动态数据
+  &-right {
+    flex: 1 1 0;
+    box-sizing: border-box;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  // 通用 section 块
+  &-section {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+    min-height: 0;
+    overflow: hidden;
+
+    & + & {
+      border-top: 1px solid #f0f0f0;
+    }
+
+    &--binding {
+      flex: 1 0 auto;
+    }
+  }
+
+  &-section-header {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    flex-shrink: 0;
+  }
+
+  &-section-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: #1f2329;
+    letter-spacing: 0.2px;
+  }
+
+  &-section-body {
+    flex: 1;
+    min-height: 0;
+    overflow: auto;
+    padding: 12px;
+  }
+
+  // 动态数据绑定行
+  &-binding-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &-binding-label {
+    flex-shrink: 0;
+    width: 88px;
+    font-size: 12px;
+    color: #646a73;
+    text-align: right;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &-binding-empty {
+    font-size: 12px;
+    color: #bbbfc4;
+  }
+}

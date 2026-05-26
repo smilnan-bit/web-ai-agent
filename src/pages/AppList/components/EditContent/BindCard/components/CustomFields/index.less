@@ -1,0 +1,37 @@
+.customfields {
+  &-item {
+    display: inline-block;
+    background-color: #f7f8fa;
+    padding: 36px 12px 12px;
+    width: 100%;
+    position: relative;
+
+    .ant-form-item {
+      margin-bottom: 0;
+
+      &:not(:last-of-type) {
+        margin-bottom: 14px;
+      }
+    }
+
+    &:not(:last-of-type) {
+      margin-bottom: 16px;
+    }
+
+    .action-delete {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      cursor: pointer;
+      color: #999;
+
+      &:hover {
+        color: #337eff;
+      }
+    }
+  }
+
+  .add-button {
+    padding-left: 0;
+  }
+}

@@ -1,0 +1,45 @@
+.FixedParamsInput {
+    &-value {
+        display: flex;
+        gap: 8px;
+        flex: 1;
+        min-width: 0;
+        overflow: hidden;
+    }
+
+    
+
+    &-array-row {
+        display: flex;
+        align-items: center;
+        margin-bottom: 4px;
+        gap: 4px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        &-input {
+            flex: 1;
+            min-width: 0;
+        }
+
+        &-actions {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+            height: 32px;
+            gap: 4px;
+
+            .ant-btn-link {
+                width: 14px ;
+                padding: 0;
+                height: 32px;
+                line-height: 32px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+}

@@ -1,0 +1,44 @@
+.CreateTool {
+  position: relative;
+
+  &-Nav {
+    font-size: 18px;
+    padding: 16px;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(29, 28, 35, 0.08);
+    margin-bottom: 20px;
+  }
+
+  &-StepContent {
+    border-top: 1px solid rgba(29, 28, 35, 0.08);
+    margin-top: 16px;
+    padding: 16px 0 0;
+    height: calc(100% - 100px);
+    overflow-y: auto;
+
+    tr.ant-table-expanded-row > td,
+    tr.ant-table-expanded-row:hover > td {
+      background: #fff;
+    }
+
+    &.modeltool {
+      overflow-y: hidden;
+    }
+  }
+
+  &-StepAction {
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    bottom: 0;
+    width: calc(100% - 32px);
+    padding: 8px 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+  }
+}
+
+.BasicInfo {
+  .ant-form-item-label > label {
+    padding-right: 8px;
+  }
+}

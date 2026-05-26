@@ -1,0 +1,178 @@
+.BindCard {
+  display: flex;
+  height: 100%;
+
+  &-selecttype,
+  &-preview {
+    width: 360px;
+    flex: none;
+  }
+
+  &-datasource {
+    flex: 1;
+    padding: 24px;
+    overflow-y: auto;
+
+    .ant-form-item-label > label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::before {
+      content: none;
+    }
+
+    &-form {
+      &-part {
+        &:not(:first-of-type) {
+          margin-top: 16px;
+        }
+      }
+    }
+  }
+
+  &-notuse {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &-selecttype {
+    background: #edeef0;
+    padding: 24px;
+    padding-bottom: 0;
+
+    &.inworkflow {
+      padding-top: 0;
+    }
+
+    &-list {
+      padding-right: 24px;
+      margin-right: -24px;
+      overflow-y: auto;
+      height: calc(100% - 140px);
+
+      .BindCard-optioncard {
+        margin-bottom: 20px;
+      }
+
+      .BindCard-cotui-optioncard {
+        margin-bottom: 20px;
+        margin-left: 4px;
+        width: calc(100% - 4px);
+      }
+
+      &.inworkflow {
+        height: calc(100% - 70px);
+      }
+    }
+
+    &-subtitle {
+      margin: 4px 0 16px;
+      font-size: 13px;
+      font-weight: 500;
+      color: #86909c;
+    }
+  }
+
+  &-preview {
+    padding: 24px;
+    background: #edeef0;
+    position: relative;
+
+    img {
+      width: calc(100% - 48px);
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &-cotui {
+      display: flex;
+      flex-direction: column;
+
+      &-body {
+        flex: 1;
+        margin-top: 16px;
+        overflow: auto;
+      }
+
+      &-empty {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #86909c;
+        font-size: 14px;
+      }
+    }
+  }
+
+  &-title {
+    font-weight: 500;
+    font-size: 16px;
+  }
+
+  .bindfield {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+
+    &.nameWrap {
+      margin-bottom: 10px;
+    }
+
+    &-name {
+      width: 100px;
+      font-size: 14px;
+      line-height: 20px;
+      margin-bottom: 6px;
+    }
+
+    &-index {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background-color: #337eff;
+      color: #fff;
+      text-align: center;
+      display: inline-block;
+      margin-top: 4px;
+    }
+
+    .ant-form-item {
+      flex: 1;
+    }
+
+    &.groupWrap {
+      .bindfield-index {
+        margin-top: 0;
+      }
+
+      &:not(:last-of-type) {
+        margin-bottom: 16px;
+      }
+    }
+
+    .itemgroup {
+      display: inline-block;
+      background-color: #f7f8fa;
+      padding: 12px;
+      flex: 1;
+
+      .ant-form-item {
+        margin-bottom: 0;
+
+        &:not(:last-of-type) {
+          margin-bottom: 14px;
+        }
+      }
+    }
+
+    .item {
+      flex: 1;
+    }
+  }
+}
+
+.output-mode-popover {
+  * {
+    padding: 0;
+  }
+}

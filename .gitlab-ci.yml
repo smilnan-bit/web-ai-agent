@@ -1,0 +1,90 @@
+# 静态部署平台专用CI配置文件
+
+workflow:
+  # 预发、灰度、全量、MR、API 主动触发，会运行 pipeline
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+      when: always
+    - if: '$CI_PIPELINE_SOURCE == "web"'
+      when: always
+    - if: '$CI_PIPELINE_SOURCE == "api"'
+      when: always
+    - when: never
+
+stages:
+  - install
+  - lint
+  - build
+  - deploy
+  - failed
+
+# 定义全局缓存配置
+cache: &global_cache
+  paths:
+    - node_modules/
+  key:
+    files: &global_cache_files
+      - package.json
+      - package-lock.json
+
+# 定义缓存拉取锚点，除了install，其他使用了node_modules的作业都需要引用
+.global_cache_pull: &global_cache_pull
+  <<: *global_cache
+  policy: pull
+
+.push_event_rules: &push_event_rules
+  - if: $DEPLOY_ID == null
+
+install:
+  resource_group: $CI_PIPELINE_CREATED_AT
+  stage: install
+  rules:
+    - if: $DEPLOY_ID == null
+      changes:
+        - package.json
+  cache: *global_cache
+  script:
+    - echo $CI_COMMIT_BRANCH
+    - echo $DEPLOY_ID
+    - nvm use 18
+    - npm install
+
+lint:
+  resource_group: $CI_PIPELINE_CREATED_AT
+  stage: lint
+  rules: *push_event_rules
+  cache: *global_cache_pull
+  script:
+    - nvm use 18
+    - npm run lint
+
+build:
+  resource_group: $CI_PIPELINE_CREATED_AT
+  stage: build
+  rules: *push_event_rules
+  cache: *global_cache_pull
+  script:
+    - nvm use 18
+    - npm run build -- --env=$BUILD_ENV
+
+deploy:
+  resource_group: $CI_PIPELINE_CREATED_AT
+  stage: deploy
+  rules:
+    - if: $DEPLOY_ID != null
+  cache: *global_cache
+  script:
+    - nvm use 18
+    - npm install
+    - npm run build -- --env=$BUILD_ENV
+    - npm run deploy
+
+failed-job:
+  resource_group: $CI_PIPELINE_CREATED_AT
+  stage: failed
+  rules:
+    - if: $DEPLOY_ID != null
+      when: on_failure
+  cache: *global_cache_pull
+  script:
+    - npm run deploy -- --failed

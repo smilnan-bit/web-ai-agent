@@ -1,0 +1,144 @@
+.ahw {
+  &-title {
+    padding: 12px 16px;
+    font-size: 18px;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    border-top: 3px solid #faad14;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &-container {
+    height: calc(100% - 56px);
+    background-color: #ffffff;
+    padding: 16px 9px 16px 16px;
+    overflow-y: auto;
+    //scrollbar-gutter: stable;
+
+    & > .ant-timeline > .ant-timeline-item > .ant-timeline-item-content {
+      margin-left: 18px;
+    }
+
+    & > .ant-timeline > .ant-timeline-item > .ant-timeline-item-head-blue {
+      background-color: #337eff;
+    }
+
+    &-item {
+      font-size: 12px;
+      display: flex;
+      flex-direction: column;
+      padding: 5px 8px;
+      cursor: pointer;
+
+      &-desc {
+        line-height: 20px;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        & > .acid-label {
+          color: #00000073;
+        }
+      }
+
+      &-line {
+        display: inline-flex;
+        gap: 8px;
+        align-items: center;
+        margin-top: 4px;
+
+        .acil-action {
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+
+          & > svg {
+            margin-right: 4px;
+          }
+
+          &-icon > path {
+            fill: #00000073;
+          }
+
+          &:hover {
+            color: #337eff;
+
+            & > .acil-action-icon > path {
+              fill: #337eff;
+            }
+          }
+        }
+      }
+    }
+
+    &-item:hover {
+      background-color: #f2f3f5;
+      border-radius: 4px;
+    }
+
+    &-currentItem {
+      font-size: 14px;
+      line-height: 22px;
+    }
+
+    &-item-gary {
+      background-color: #f2f3f5;
+      border-radius: 4px;
+    }
+  }
+}
+
+.awh-modal-title {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.awh-modal-container {
+  height: 520px;
+  overflow-y: auto;
+}
+
+.ahw-publish-container {
+  max-height: 520px;
+  overflow-y: auto;
+
+  &-item {
+    padding: 8px 12px;
+    background-color: #f2f3f5;
+    margin-bottom: 8px;
+    border-radius: 4px;
+
+    .apci-title {
+      font-size: 14px;
+      line-height: 22px;
+      font-weight: 500;
+      color: #000000d9;
+    }
+
+    .apci-publish-wrap {
+      margin-top: 8px;
+
+      .apci-publish-item {
+        display: flex;
+        font-size: 14px;
+        line-height: 22px;
+        gap: 16px;
+
+        span {
+          display: inline-flex;
+          overflow: hidden;
+          word-break: break-word;
+        }
+
+        &-time {
+          color: #b224b2;
+        }
+      }
+    }
+  }
+}

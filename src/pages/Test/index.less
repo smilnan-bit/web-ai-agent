@@ -1,0 +1,21 @@
+@import '../../assets/css/index.less';
+
+.Test {
+  &-link {
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.85);
+    margin-right: 12px;
+
+    .anticon {
+      color: rgba(0, 0, 0, 0.45);
+    }
+
+    &:hover {
+      color: @blue-hover;
+    }
+
+    &:active {
+      color: @blue-active;
+    }
+  }
+}

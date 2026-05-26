@@ -1,0 +1,32 @@
+.m-batch-table {
+  &-panel {
+    display: flex;
+    align-items: center;
+    height: 72px;
+    padding: 0 30px 0 40px;
+    background-color: #f4f4f4;
+
+    span {
+      white-space: nowrap;
+
+      &:first-child {
+        margin-right: 8px;
+      }
+
+      &:not(:first-child) {
+        color: #62a8ea;
+        cursor: pointer;
+      }
+    }
+
+    &-operation {
+      display: flex;
+      justify-content: flex-end;
+      flex: 1;
+
+      > button {
+        margin-left: 20px;
+      }
+    }
+  }
+}

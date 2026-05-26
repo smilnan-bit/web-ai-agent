@@ -1,0 +1,38 @@
+.WorkflowModal {
+  .WorkflowList {
+    height: 100%;
+    overflow-y: auto;
+
+    .WorkflowItem {
+      background-color: #f3f4f6;
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 12px;
+      align-items: center;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: 2px;
+
+      &:not(:first-of-type) {
+        margin-top: 12px;
+      }
+
+      &-name {
+        font-weight: 500;
+      }
+
+      &-count {
+        color: rgba(0, 0, 0, 0.45);
+      }
+    }
+  }
+
+  .ant-pagination {
+    position: absolute;
+    bottom: 16px;
+    left: 0;
+    padding: 16px 16px 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    width: 100%;
+    text-align: right;
+  }
+}

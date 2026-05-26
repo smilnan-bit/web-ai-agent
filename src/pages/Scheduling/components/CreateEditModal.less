@@ -1,0 +1,95 @@
+.scheduling-create-modal {
+  .scheduling-mode-cards {
+    display: flex;
+    gap: 12px;
+
+    .mode-card {
+      flex: 1;
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 14px;
+      border: 1px solid #d9d9d9;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: border-color 0.2s;
+      background: #fff;
+      min-height: 100px;
+
+      &.selected {
+        border: 2px solid @primary-color;
+        padding: 13px;
+      }
+
+      &.disabled {
+        cursor: not-allowed;
+        background: #fafafa;
+
+        .mode-card-title,
+        .mode-card-desc {
+          color: rgba(0, 0, 0, 0.35);
+        }
+      }
+
+      .coming-soon-tag {
+        position: absolute;
+        top: 0;
+        right: 0;
+        border-radius: 0 6px 0 6px;
+        font-size: 12px;
+        padding: 2px 8px;
+        background: @primary-color;
+        color: #fff;
+        border: none;
+        line-height: 20px;
+      }
+
+      .mode-card-radio {
+        position: absolute;
+        bottom: 14px;
+        right: 14px;
+      }
+
+      .mode-card-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        flex-shrink: 0;
+        margin-top: 2px;
+
+        &.canvas-icon {
+          background: rgba(255, 148, 50, 0.12);
+          color: #ff9432;
+        }
+
+        &.plan-icon {
+          background: rgba(51, 126, 255, 0.1);
+          color: @primary-color;
+        }
+      }
+
+      .mode-card-body {
+        flex: 1;
+        padding-right: 28px;
+      }
+
+      .mode-card-title {
+        font-size: 14px;
+        font-weight: 600;
+        color: rgba(0, 0, 0, 0.85);
+        margin-bottom: 6px;
+      }
+
+      .mode-card-desc {
+        font-size: 12px;
+        color: rgba(0, 0, 0, 0.45);
+        line-height: 1.6;
+      }
+    }
+  }
+}

@@ -1,0 +1,100 @@
+.template-try-opertare {
+  padding: 20px 16px 0 16px;
+  background: #ffffff;
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  position: relative;
+}
+
+.template-try-iframe {
+  border-radius: 8px;
+  border: 1px solid #d9d9d9;
+}
+
+/* 小于等于1440px：蓝色区域贴右边展示，红色区域自适应，黄色固定320px */
+@media (max-width: 1440px) {
+  .template-try-container {
+    justify-content: flex-end;
+    width: 100%;
+  }
+
+  .template-try-iframe {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .template-try-opertare {
+    width: 320px;
+    flex-shrink: 0;
+  }
+}
+
+/* 1441px到1599px的过渡处理 */
+@media (min-width: 1441px) and (max-width: 1599px) {
+  .template-try-container {
+    justify-content: flex-end;
+    width: 100%;
+  }
+
+  .template-try-iframe {
+    flex: 1;
+    max-width: 860px;
+    min-width: 0;
+  }
+
+  .template-try-opertare {
+    width: 320px;
+    flex-shrink: 0;
+  }
+}
+
+/* 1600px到1919px：蓝色区域居中，红色固定860px，黄色固定320px */
+@media (min-width: 1600px) and (max-width: 1919px) {
+  .template-try-container {
+    width: 1180px; /* 860px + 320px */
+    //width: 100%;
+    margin: 0 auto;
+  }
+
+  .template-try-iframe {
+    width: 860px;
+    flex-shrink: 0;
+  }
+
+  .template-try-opertare {
+    width: 320px;
+    flex-shrink: 0;
+  }
+}
+
+/* 大于等于1920px：所有区域按比例放大，template-try-iframe作为主要区域更大 */
+@media (min-width: 1920px) {
+  .template-try-container {
+    width: calc(1180px * (100vw / 1920px)); /* 基于1920px时1180px等比放大 */
+    margin: 0 auto;
+  }
+
+  .template-try-iframe {
+    width: calc(860px * (100vw / 1920px)); /* 基于1920px时860px等比放大 */
+    flex-shrink: 0;
+  }
+
+  .template-try-opertare {
+    width: calc(320px * (100vw / 1920px)); /* 基于1920px时320px等比放大 */
+    flex-shrink: 0;
+  }
+}
+
+.template-try-copy-modal {
+  .ant-modal-body {
+    max-height: 50vh;
+    overflow-y: auto;
+  }
+}
+
+.template-try-copy-alert-modal {
+  .ant-modal-confirm-content {
+    max-height: 50vh;
+    overflow-y: auto;
+  }
+}

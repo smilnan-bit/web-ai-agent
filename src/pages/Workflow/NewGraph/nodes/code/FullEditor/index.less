@@ -1,0 +1,56 @@
+.fulleditor {
+  transition: none;
+  animation: slideInRight 0.2s ease forwards;
+  height: 100%;
+
+  &-header {
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    border-bottom: 1px solid #e8e8e8;
+
+    &-titleicon {
+      display: inline-block;
+      width: 22px;
+      height: 22px;
+      background-color: #337eff;
+      text-align: center;
+      border-radius: 2px;
+      margin-right: 4px;
+
+      svg {
+        vertical-align: middle;
+      }
+    }
+
+    &-titletext {
+      font-weight: 500;
+      font-size: 16px;
+    }
+
+    &-ope {
+      color: #337eff;
+      cursor: pointer;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+
+      svg {
+        margin-right: 4px;
+      }
+    }
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    width: 0px;
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}

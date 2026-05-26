@@ -1,0 +1,32 @@
+.EditHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 12px;
+
+  &-left {
+    display: flex;
+    align-items: center;
+  }
+
+  &-actions {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    &-history {
+      padding: 8px;
+
+      &:hover {
+        & > svg > path {
+          color: #337eff;
+        }
+
+        & > svg > path {
+          fill: #337eff;
+          stroke: none !important;
+        }
+      }
+    }
+  }
+}

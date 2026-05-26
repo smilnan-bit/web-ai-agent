@@ -1,0 +1,56 @@
+.MultipleEdit {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+
+  &-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 16px;
+    background: #f3f4f6;
+
+    &-name {
+      font-size: 16px;
+      font-weight: 600;
+    }
+  }
+
+  &-add {
+    color: #337eff;
+  }
+
+  &-list {
+    padding: 0 16px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+
+    &-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 0;
+
+      &:not(:first-of-type) {
+        border-top: 1px solid rgba(0, 0, 0, 0.06);
+      }
+    }
+  }
+
+  &-opeicon {
+    color: rgba(0, 0, 0, 0.45);
+    font-size: 16px;
+  }
+
+  .enable-click {
+    &:hover {
+      cursor: pointer;
+      color: #337eff !important;
+    }
+  }
+
+  .disable-click {
+    &:hover {
+      cursor: not-allowed;
+    }
+  }
+}

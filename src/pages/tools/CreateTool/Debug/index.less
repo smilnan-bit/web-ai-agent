@@ -1,0 +1,89 @@
+.Debug {
+  height: 100%;
+
+  &-content {
+    display: flex;
+    gap: 0 20px;
+    height: calc(100% - 38px);
+  }
+
+  .Debug-header {
+    margin-bottom: 16px;
+  }
+
+  .EditParams,
+  .DebugResult {
+    border: 1px solid #0000001a;
+    border-radius: 4px;
+    height: 100%;
+    overflow-y: auto;
+
+    &-header {
+      padding: 8px 16px;
+      background: #f3f4f6;
+      font-size: 16px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #0000000f;
+    }
+
+    &-content {
+      padding: 16px;
+    }
+  }
+
+  .EditParams {
+    flex: 1;
+  }
+
+  .DebugResult {
+    flex: 1;
+    max-width: calc(50% - 20px);
+    height: 100%;
+
+    &-result {
+      font-weight: 500;
+      padding: 0 8px;
+      margin-left: 8px;
+      font-size: 12px;
+      border-radius: 2px;
+      height: 22px;
+      line-height: 22px;
+
+      &.fail {
+        color: #fff;
+        background-color: rgba(255, 77, 79, 1);
+      }
+
+      &.success {
+        color: #fff;
+        background-color: rgba(18, 178, 18, 1);
+      }
+    }
+
+    &-resultTag {
+      background-color: #808080;
+      color: #fff;
+      padding: 2px 8px;
+      border-radius: 2px;
+      display: inline-block;
+      margin-bottom: 8px;
+      font-size: 12px;
+
+      &:nth-of-type(2) {
+        margin-top: 8px;
+      }
+    }
+
+    .ResponsePanel {
+      word-break: break-all;
+    }
+
+    &-panel {
+      background-color: #fff;
+      height: calc(100% - 30px);
+      overflow-y: auto;
+    }
+  }
+}

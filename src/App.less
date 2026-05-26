@@ -1,0 +1,67 @@
+@import './assets/css/index.less';
+
+.AiAgent {
+  .ant-empty {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &-image {
+      margin-bottom: 16px;
+    }
+  }
+
+  &-link {
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.45);
+
+    &:hover {
+      color: @blue-hover;
+    }
+
+    &:active {
+      color: @blue-active;
+    }
+  }
+
+  &-link-disbaled {
+    cursor: not-allowed;
+
+    &:hover {
+      color: rgba(0, 0, 0, 0.25);
+    }
+
+    &:active {
+      color: rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  .cm-editor {
+    .cm-content {
+      min-height: 100px;
+    }
+
+    * {
+      font-family: inherit !important;
+    }
+  }
+}
+
+.RequiredColumn {
+  &::after {
+    display: inline-block;
+    margin-right: 4px;
+    color: #ff4d4f;
+    font-size: 14px;
+    line-height: 1;
+    content: '*';
+  }
+}
+
+.type-cascader-dropdown {
+  .ant-cascader-menu {
+    min-height: 200px;
+  }
+}

@@ -1,0 +1,250 @@
+// 让 Spin 包裹容器撑满父元素
+.CardManagement-spin-wrapper {
+    height: 100%;
+
+    .ant-spin-container {
+        height: 100%;
+    }
+}
+
+.CardManagement {
+    &-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 24px;
+
+        &-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1f2329;
+        }
+    }
+
+    // 瀑布流容器：Flex 横向排列多列，JS round-robin 分配卡片
+    &-masonry {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+    }
+
+    // 每列：纵向排列，均分宽度
+    &-masonry-col {
+        flex: 1 1 0;
+        min-width: 0; // 防止内容撑破 flex 容器
+        max-width: 30%; // 防止内容撑破 flex 容器
+    }
+
+    // 单个卡片格子
+    &-card {
+        width: 100%;
+        background: #fff;
+        border-radius: 8px;
+        overflow: hidden;
+        cursor: pointer;
+        transition: box-shadow 0.2s;
+        position: relative;
+        margin-bottom: 12px;
+
+        &:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        &:hover .CardManagement-card-overlay {
+            opacity: 1;
+        }
+    }
+
+    // 缩略图容器：高度自适应，真实渲染 SpecPreview
+    &-thumbnail {
+        width: 100%;
+        pointer-events: none;
+        overflow: hidden;
+        .fit-container {
+            > div {
+                max-width: 100% !important;
+            }
+        }
+    }
+
+    // hover 遮罩
+    &-card-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+        opacity: 0;
+        transition: opacity 0.2s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+
+        &-action {
+            color: #fff;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: none;
+
+            &:hover {
+                opacity: 0.8;
+                color: #fff;
+            }
+
+            &--danger {
+                color: #ff4d4f;
+
+                &:hover {
+                    color: #ff7875;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    // 卡片底部名称
+    &-card-footer {
+        padding: 10px 12px;
+        font-size: 13px;
+        color: #1f2329;
+        border-top: 1px solid #f0f0f0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    // 下拉加载更多哨兵
+    &-sentinel {
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &-load-more-text {
+        font-size: 13px;
+        color: #8f959e;
+    }
+
+    // ——— 空状态 ———
+    &-empty {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+
+        // 渐变光晕背景
+        &::before {
+            content: '';
+            position: absolute;
+            top: -120px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 400px;
+            background: radial-gradient(ellipse at 30% 50%, rgba(140, 120, 240, 0.25) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 40%, rgba(100, 160, 255, 0.2) 0%, transparent 60%),
+                radial-gradient(ellipse at 50% 60%, rgba(200, 160, 255, 0.15) 0%, transparent 60%);
+            pointer-events: none;
+        }
+    }
+
+    &-empty-content {
+        position: relative;
+        z-index: 1;
+        width: 640px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &-empty-title {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 28px;
+        font-weight: 600;
+    }
+
+    &-empty-subtitle {
+        font-size: 14px;
+        color: var(--color-ysf-third);
+        text-align: center;
+        margin-bottom: 16px;
+    }
+
+    // 空状态输入框
+    // 空状态输入框
+    &-empty-input-wrap {
+        width: 100%;
+        background: #fff;
+        border: 1px solid #e4e6eb;
+        border-radius: 12px;
+        padding: 8px 16px;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        position: relative;
+
+        textarea {
+            width: 100%;
+            border: none;
+            outline: none;
+            resize: none;
+            font-size: 14px;
+            color: #1f2329;
+            line-height: 1.6;
+            background: transparent;
+            min-height: 74px;
+            max-height: 360px;
+            overflow-y: auto;
+
+            &::placeholder {
+                color: #bbbfc4;
+            }
+        }
+        
+        &:hover{
+            border-color: var(--color-ysf-primary);
+        } 
+    }
+
+    &-empty-send-btn {
+        align-self: flex-end;
+        width: 32px;
+        height: 32px;
+        border-radius: var(--radius-ysf-l);
+        background: var(--color-ysf-primary);
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s;
+        flex-shrink: 0;
+
+
+        &:disabled {
+            background: var(--color-ysf-line);
+            cursor: not-allowed;
+        }
+    }
+
+    &-empty-send-loading {
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        border: 2px solid rgba(255, 255, 255, 0.4);
+        border-top-color: #fff;
+        border-radius: 50%;
+        animation: card-spin 0.7s linear infinite;
+    }
+}
+
+@keyframes card-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

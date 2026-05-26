@@ -1,0 +1,107 @@
+.var-table {
+  min-width: 0; // 允许表格收缩
+  overflow: hidden; // 防止内容溢出
+
+  .var-table-header {
+    display: flex;
+    align-items: center;
+    color: rgba(0, 0, 0, 0.85);
+    font-size: 14px;
+    gap: 8px;
+    min-width: 0; // 允许表头收缩
+    margin-bottom: 8px;
+
+    .var-table-cell {
+      flex: 1;
+      min-width: 0; // 允许单元格收缩
+      overflow: hidden; // 防止内容溢出
+
+      &.long-cell {
+        flex: 2;
+      }
+
+      &.required {
+        &::after {
+          content: '*';
+          color: #ff4d4f;
+          margin-right: 4px;
+        }
+      }
+
+      &.operation {
+        flex: 0 0 22px;
+        text-align: center;
+      }
+    }
+  }
+
+  .var-table-body {
+    .var-table-empty {
+      padding: 40px 12px;
+      text-align: center;
+      color: #999;
+    }
+
+    .var-table-row {
+      display: flex;
+      align-items: flex-start;
+      min-height: 40px;
+      gap: 8px;
+
+      &:hover {
+        background-color: #fafafa;
+      }
+
+      .var-table-cell {
+        flex: 1;
+        display: flex;
+        align-items: start;
+        min-width: 0; // 允许单元格收缩
+        overflow: hidden; // 防止内容溢出
+
+        &.long-cell {
+          flex: 2;
+        }
+
+        &.operation {
+          flex: 0 0 22px;
+          display: flex;
+          justify-content: end;
+          align-items: center;
+          color: rgba(0, 0, 0, 0.45);
+
+          .ant-btn {
+            padding: 0;
+          }
+
+          .action-delete {
+            color: rgba(0, 0, 0, 0.45);
+
+            &:hover {
+              color: #ff4d4f;
+            }
+          }
+        }
+
+        // 确保表单项占满整个单元格
+        .form-field-wrapper {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .add-button {
+    margin-top: 12px;
+  }
+
+  .var-table-errors {
+    margin-top: 8px;
+
+    .error-message {
+      color: #ff4d4f;
+      font-size: 12px;
+      margin-bottom: 4px;
+    }
+  }
+}

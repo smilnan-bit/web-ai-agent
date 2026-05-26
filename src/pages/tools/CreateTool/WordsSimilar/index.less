@@ -1,0 +1,87 @@
+.m-words-similar {
+  height: 100%;
+
+  &-operation {
+    color: #999;
+
+    .icon-setting {
+      color: #999;
+      margin-right: 20px;
+      cursor: pointer;
+      font-size: 15px;
+
+      &:hover {
+        color: #337eff;
+      }
+    }
+
+    &.disabled {
+      .icon-setting {
+        cursor: not-allowed;
+
+        &:hover {
+          color: #999;
+        }
+      }
+    }
+  }
+
+  .ant-table-row {
+    cursor: pointer;
+  }
+  // checkbox动画卡顿问题 https://github.com/ant-design/ant-design/issues/25698
+  .ant-table-cell .ant-checkbox .ant-checkbox-inner {
+    transition: none;
+
+    &::after {
+      transition: none;
+    }
+  }
+
+  .ant-table-cell .ant-checkbox-checked::after {
+    animation: none;
+  }
+}
+
+.EditWord {
+  &-form {
+    width: 800px;
+    margin: 0 auto;
+    height: calc(100% - 80px);
+    // checkbox动画卡顿问题 https://github.com/ant-design/ant-design/issues/25698
+    .ant-checkbox .ant-checkbox-inner {
+      transition: none;
+
+      &::after {
+        transition: none;
+      }
+    }
+
+    .ant-checkbox-checked::after {
+      animation: none;
+    }
+    // react-vitualize会有个额外样式
+    .ReactVirtualized__List,
+    .ReactVirtualized__Grid__innerScrollContainer {
+      &:focus-visible {
+        outline: none;
+      }
+    }
+  }
+
+  &-standardInput {
+    margin-right: 18px;
+  }
+
+  &-similar {
+    height: calc(100% - 110px);
+    margin-left: 25%;
+
+    &-list {
+      height: calc(100% - 100px);
+      overflow-x: hidden;
+      overflow-y: auto;
+      padding-bottom: 2px;
+    }
+  }
+}

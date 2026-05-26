@@ -1,0 +1,155 @@
+/* 参数标签样式 */
+.RenderInput {
+  .param-label {
+    display: flex;
+    align-items: center;
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .param-name {
+    font-weight: 500;
+    margin-right: 8px;
+  }
+
+  .param-type {
+    color: #666;
+    font-size: 12px;
+    font-style: italic;
+  }
+
+  /* 子参数样式 */
+  .child-param {
+    position: relative;
+    height: 100%;
+    width: 100%;
+  }
+
+  /* 连接线样式 - 移到父容器中 */
+  .param-connector {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 20px;
+    display: flex;
+    align-items: flex-start;
+    z-index: 1; /* 确保连接线在最上层 */
+  }
+
+  .vertical-line {
+    width: 1px;
+    height: 100%;
+    /* stylelint-disable-next-line rule-empty-line-before */
+    &.last-child {
+      height: 50%;
+    }
+    background-color: #d9d9d9;
+    margin-left: 10px;
+    position: relative;
+  }
+
+  .horizontal-line {
+    width: 20px;
+    height: 1px;
+    background-color: #d9d9d9;
+    margin-top: 18px;
+    position: relative;
+  }
+
+  /* 子参数容器 */
+  .sub-params {
+    position: relative;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    overflow: visible;
+  }
+
+  /* 表单项样式调整 */
+  .ant-form-item {
+    margin-bottom: 0px;
+
+    .ant-row.ant-form-item-row {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .array-form-item {
+    .ant-form-item-label {
+      align-self: flex-start;
+    }
+  }
+
+  .ant-form-item-label > label {
+    height: 40px;
+  }
+
+  /* 数组参数样式 */
+  .array-params {
+    width: 100%;
+
+    .array-item {
+      margin-top: 4px;
+      margin-bottom: 8px;
+
+      &.is-last {
+        margin-bottom: 0px;
+      }
+    }
+  }
+
+  .array-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+
+    & > .ant-form-item {
+      flex: 1;
+    }
+  }
+
+  .remove-btn {
+    color: #ff4d4f;
+    height: 32px;
+    padding: 0;
+    width: 18px;
+  }
+
+  .remove-btn:hover {
+    color: #ff7875;
+  }
+
+  .add-btn {
+    border-color: #40a9ff;
+    color: #40a9ff;
+    cursor: pointer;
+  }
+
+  /* 响应式调整 */
+  @media (max-width: 768px) {
+    .child-param {
+      margin-left: 16px;
+    }
+
+    .param-connector {
+      left: -16px;
+      width: 16px;
+    }
+
+    .vertical-line {
+      margin-left: 8px;
+    }
+
+    .horizontal-line {
+      width: 8px;
+    }
+
+    .array-item {
+      flex-direction: column;
+      gap: 4px;
+    }
+  }
+}

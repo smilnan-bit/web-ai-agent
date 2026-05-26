@@ -1,0 +1,34 @@
+.TipWord {
+  height: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+
+  &-title {
+    padding: 8px 16px;
+    background: #f3f4f6;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    span:first-of-type {
+      font-size: 16px;
+      font-weight: 600;
+    }
+  }
+
+  &-text {
+    padding: 8px 4px 8px 16px;
+    height: calc(100% - 34px);
+    overflow-y: auto;
+
+    textarea {
+      height: 100% !important;
+      padding: 0 12px 0 0;
+    }
+  }
+
+  .cm-line {
+    line-height: 24px;
+  }
+}

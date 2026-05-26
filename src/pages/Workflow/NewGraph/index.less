@@ -1,0 +1,51 @@
+.m-custom-ant-tree {
+  .ant-tree-switcher {
+    display: none;
+  }
+}
+
+.m-graph {
+  .add-button {
+    width: auto;
+    padding: 0;
+    height: 22px;
+
+    &.ant-btn > .anticon + span {
+      margin-left: 4px;
+    }
+  }
+
+  .btn-action {
+    flex-shrink: 0;
+    width: auto;
+    height: 32px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    color: rgba(0, 0, 0, 0.45);
+
+    .ant-btn {
+      padding: 0;
+    }
+
+    .action-delete {
+      color: rgba(0, 0, 0, 0.45);
+
+      &:hover {
+        color: #ff4d4f;
+      }
+    }
+  }
+
+  .gedit-selector-bounds-foreground {
+    cursor: move;
+    // 子画布中创建分组bug 创建分组时额外另加个样式
+    outline: 1px solid #4d53e8;
+  }
+}
+
+// 拖拽时的节点样式
+.sortable-helper {
+  z-index: 1000;
+  opacity: 0.8;
+}
